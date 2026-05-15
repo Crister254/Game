@@ -16,15 +16,16 @@ public class PlayercController : MonoBehaviour
 
     void FixedUpdate()
     {
-        print("Upd");
+        
         if (Input.GetKey(KeyCode.W)){
             float Force = acceleration * Time.fixedDeltaTime;
-            rb.AddForce(transform.forward * Force, ForceMode.VelocityChange);
             print(Force);
+            rb.AddForce(transform.forward * Force, ForceMode.VelocityChange);
         }
     
        if (Input.GetKey(KeyCode.S)){
             float Force = -(acceleration * Time.fixedDeltaTime);
+            print(Force);
             rb.AddForce(transform.forward * Force, ForceMode.VelocityChange);
         }
 
