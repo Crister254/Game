@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayercController : MonoBehaviour
 
 {
-    public float acclerantion = 10f;
-    public float turnSPeed = 100f;
+    public float acceleration = 10f;
+    public float turnSpeed = 100f;
 
     private Rigidbody rb;
     
@@ -15,14 +16,17 @@ public class PlayercController : MonoBehaviour
 
     void FixedUpdate()
     {
-       
-
-
+        print("Upd");
         if (Input.GetKey(KeyCode.W)){
-            float Force = acclerantion * Time.fixedDeltaTime;
+            float Force = acceleration * Time.fixedDeltaTime;
             rb.AddForce(transform.forward * Force, ForceMode.VelocityChange);
+            print(Force);
         }
     
-       
+       if (Input.GetKey(KeyCode.S)){
+            float Force = -(acceleration * Time.fixedDeltaTime);
+            rb.AddForce(transform.forward * Force, ForceMode.VelocityChange);
+        }
+
     }
 }

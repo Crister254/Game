@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 158777805}
   - component: {fileID: 158777804}
   - component: {fileID: 158777803}
+  - component: {fileID: 158777807}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -231,6 +232,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &158777807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158777802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2036c717aa374438a6cb55b46919b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayercController
+  acceleration: 10
+  turnSpeed: 100
 --- !u!1 &1142352837
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,13 +450,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307747609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.37986204, y: -0, z: -0, w: 0.92504317}
   m_LocalPosition: {x: 7.68, y: 1.36, z: -3.43}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -44.65, y: 0, z: 0}
 --- !u!54 &1307747615
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -450,7 +465,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307747609}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.12
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -481,8 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2036c717aa374438a6cb55b46919b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayercController
-  acclerantion: 10
-  turnSPeed: 100
+  acceleration: 10
+  turnSpeed: 100
 --- !u!1 &1603753825
 GameObject:
   m_ObjectHideFlags: 0
