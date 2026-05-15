@@ -3,15 +3,26 @@ using UnityEngine;
 public class PlayercController : MonoBehaviour
 
 {
-    public float speed = 5f;
+    public float acclerantion = 10f;
+    public float turnSPeed = 100f;
 
-    void Update()
+    private Rigidbody rb;
+    
+    void Start()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveZ = Input.GetAxisRaw("Vertical");
+        rb = GetComponent<Rigidbody>();
+    }
 
-        Vector3 movement = new Vector3(moveX, 0f, moveZ);
+    void FixedUpdate()
+    {
+       
 
-        transform.Translate(movement * speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.W)){
+            float Force = acclerantion * Time.fixedDeltaTime;
+            rb.AddForce(transform.forward * Force, ForceMode.VelocityChange);
+        }
+    
+       
     }
 }
