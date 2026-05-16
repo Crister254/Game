@@ -436,7 +436,7 @@ Transform:
   m_GameObject: {fileID: 1307747609}
   serializedVersion: 2
   m_LocalRotation: {x: -0.37986204, y: -0, z: -0, w: 0.92504317}
-  m_LocalPosition: {x: 7.68, y: 1.36, z: -3.43}
+  m_LocalPosition: {x: 7.68, y: 0.38, z: -4.43}
   m_LocalScale: {x: 3, y: 0.64326, z: 4.3431}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -591,7 +591,7 @@ MonoBehaviour:
   carTransform: {fileID: 1307747613}
   distance: 10
   height: 5
-  smoothSpeed: 10
+  smoothSpeed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
