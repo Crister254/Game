@@ -4,26 +4,35 @@ public class CheckpointManager : MonoBehaviour
 {
     public static CheckpointManager instance;
 
+    private int totalCheckpoints = 0;
+    private int activatedCheckpoints = 0;
+
     private Vector3 lastCheckpointPos;
-    private Quaternion lastCheckpointRot;
 
     private void Awake()
     {
         instance = this;
-        lastCheckpointPos = new Vector3(0, 3, 0);
-        lastCheckpointRot = Quaternion.identity;
+        lastCheckpointPos = Vector3.zero; // por si no has tocado ninguno
     }
 
-    public void SetCheckpoint(Vector3 position, Quaternion rotation)
+    public void RegisterCheckpoint()
     {
-        lastCheckpointPos = position + Vector3.up * 3;
-        lastCheckpointRot = rotation;
-        Debug.Log("Checkpoint updated: " + position);
-
+        totalCheckpoints++;
     }
 
-    public (Vector3, Quaternion) GetCheckpoint()
+    public void ActivateCheckpoint(Vector3 pos)
     {
-        return (lastCheckpointPos, lastCheckpointRot);
+        activatedCheckpoints++;
+        lastCheckpointPos = pos; // ← guardamos la posición del checkpoint activado
+    }
+
+    public bool AllCheckpointsActivated()
+    {
+        return activatedCheckpoints >= totalCheckpoints;
+    }
+
+    public Vector3 GetCheckpoint()
+    {
+        return lastCheckpointPos;
     }
 }

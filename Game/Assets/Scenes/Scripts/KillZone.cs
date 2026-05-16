@@ -3,14 +3,15 @@ using UnityEngine;
 public class KillZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
-   {
+    {
         if (other.CompareTag("Player"))
         {
-            var (checkpointPos, checkpointRot) = CheckpointManager.instance.GetCheckpoint();
-            other.transform.position = checkpointPos;
-            other.transform.rotation = checkpointRot;
-            other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-            other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            Vector3 respawnPos = CheckpointManager.instance.GetCheckpoint();
+            other.transform.position = respawnPos;
+
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
-   }
+    }
 }
