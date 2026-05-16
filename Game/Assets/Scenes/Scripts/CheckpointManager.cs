@@ -4,23 +4,26 @@ public class CheckpointManager : MonoBehaviour
 {
     public static CheckpointManager instance;
 
-    private Vector3 lastCheckpoint;
-    
+    private Vector3 lastCheckpointPos;
+    private Quaternion lastCheckpointRot;
+
     private void Awake()
     {
         instance = this;
-        lastCheckpoint = Vector3.zero;
+        lastCheckpointPos = new Vector3(0, 3, 0);
+        lastCheckpointRot = Quaternion.identity;
     }
 
-    public void SetCheckpoint(Vector3 position)
+    public void SetCheckpoint(Vector3 position, Quaternion rotation)
     {
-        lastCheckpoint = position;
+        lastCheckpointPos = position + Vector3.up * 3;
+        lastCheckpointRot = rotation;
         Debug.Log("Checkpoint updated: " + position);
 
     }
 
-    public Vector3 GetCheckpoint()
+    public (Vector3, Quaternion) GetCheckpoint()
     {
-        return lastCheckpoint;
+        return (lastCheckpointPos, lastCheckpointRot);
     }
 }

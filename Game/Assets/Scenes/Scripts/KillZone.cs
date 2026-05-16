@@ -6,7 +6,11 @@ public class KillZone : MonoBehaviour
    {
         if (other.CompareTag("Player"))
         {
-            other.transform.position = CheckpointManager.instance.GetCheckpoint();
+            var (checkpointPos, checkpointRot) = CheckpointManager.instance.GetCheckpoint();
+            other.transform.position = checkpointPos;
+            other.transform.rotation = checkpointRot;
+            other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
    }
 }

@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+
+    private bool isTaken = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isTaken)
         {
-            CheckpointManager.instance.SetCheckpoint(transform.position);
+            isTaken = true;
+            CheckpointManager.instance.SetCheckpoint(transform.position, transform.rotation);
         }
     }
 }

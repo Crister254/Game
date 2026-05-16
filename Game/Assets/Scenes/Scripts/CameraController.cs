@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
 
     public float smoothSpeed = 5f;
 
-    void LateUpdate()
+    void Update()
     {
         if (carTransform == null) return;
 
